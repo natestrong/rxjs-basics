@@ -1,0 +1,7 @@
+.progress-bar {
+    position: fixed;
+    top: 0;
+    height: 8px;
+    width: 0%;
+    background: orangered;
+}
