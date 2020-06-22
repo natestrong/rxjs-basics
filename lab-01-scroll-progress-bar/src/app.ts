@@ -1,5 +1,5 @@
-import {fromEvent} from "rxjs";
-import {map} from "rxjs/operators";
+import {asyncScheduler, fromEvent} from "rxjs";
+import {map, tap, throttleTime} from "rxjs/operators";
 
 function calculateScrollPercent(element: HTMLElement) {
     const {scrollTop, scrollHeight, clientHeight} = element
@@ -15,7 +15,12 @@ window.onload = () => {
 const scroll$ = fromEvent<any>(document, 'scroll')
 const progress$ = scroll$.pipe(
     // Map each event to percentage of page's scroll completion
-    map(({target}) => calculateScrollPercent(target.documentElement))
+    throttleTime(250, asyncScheduler, {
+        leading: false,
+        trailing: true
+    }),
+    map(({target}) => calculateScrollPercent(target.documentElement)),
+    tap(console.log)
 )
 
 progress$.subscribe(percent => {
