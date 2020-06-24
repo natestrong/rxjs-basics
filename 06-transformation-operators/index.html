@@ -10,5 +10,47 @@
 <body>
 <script src="app.js"></script>
 <label for="text-input">Search Twitter: </label><input id="text-input">
+<div id="typeahead-container"></div>
+
+<br>
+<hr>
+<br>
+<header class="header">
+    <div class="logo">
+        <div class="logo-ultimate"></div>
+    </div>
+</header>
+<div id="app">
+    <h1>Ultimate RxJS</h1>
+    <p>What is your favorite operator?</p>
+    <div class="radio-container">
+        <input
+                type="radio"
+                class="radio-option"
+                name="operator"
+                value="mergeMap">
+        <label>mergeMap</label>
+    </div>
+    <div class="radio-container">
+        <input
+                type="radio"
+                class="radio-option"
+                name="operator"
+                value="switchMap">
+        <label>switchMap</label>
+    </div>
+    <div class="radio-container">
+        <input
+                type="radio"
+                class="radio-option"
+                name="operator"
+                value="concatMap">
+        <label>concatMap</label>
+    </div>
+</div>
+
+<label for="email">email</label><input id="email">
+<label for="password">password</label><input id="password">
+<button id="login-button">Login</button>
 </body>
 </html>
